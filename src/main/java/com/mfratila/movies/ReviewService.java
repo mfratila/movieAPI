@@ -6,13 +6,20 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
-
+    @Autowired
+    private MovieRepository movieRepository;
     @Autowired
     private MongoTemplate mongoTemplate;
+
     public Review createReview(String reviewBody, String imdbId) {
         Review review = reviewRepository.insert(new Review(reviewBody));
 
@@ -23,5 +30,13 @@ public class ReviewService {
                 .first();
 
         return review;
+    }
+
+    public List<Review> getReviewsByImdbId(String imdbId) {
+        Optional<Movie> queriedMovie = movieRepository.findMovieByImdbId(imdbId);
+
+        return queriedMovie
+                .map(Movie::getReviewIds)
+                .orElse(Collections.emptyList());
     }
 }
