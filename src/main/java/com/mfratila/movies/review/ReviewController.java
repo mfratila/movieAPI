@@ -1,4 +1,4 @@
-package com.mfratila.movies;
+package com.mfratila.movies.review;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ public class ReviewController {
 
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload) {
-        return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.CREATED);
+        return new ResponseEntity<>(reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.CREATED);
     }
 
     @GetMapping("/{imdbId}")

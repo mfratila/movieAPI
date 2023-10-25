@@ -1,4 +1,4 @@
-package com.mfratila.movies;
+package com.mfratila.movies.review;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

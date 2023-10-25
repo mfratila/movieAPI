@@ -1,4 +1,4 @@
-package com.mfratila.movies;
+package com.mfratila.movies.movie;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +22,6 @@ public class MovieController {
 
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId) {
-        return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
+        return new ResponseEntity<>(movieService.singleMovie(imdbId), HttpStatus.OK);
     }
 }

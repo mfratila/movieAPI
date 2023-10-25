@@ -1,4 +1,4 @@
-package com.mfratila.movies;
+package com.mfratila.movies.review;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
