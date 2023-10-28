@@ -1,7 +1,9 @@
-package com.mfratila.movies.review;
+package com.mfratila.movies.services;
 
-import com.mfratila.movies.movie.Movie;
-import com.mfratila.movies.movie.MovieRepository;
+import com.mfratila.movies.models.Movie;
+import com.mfratila.movies.repositories.MovieRepository;
+import com.mfratila.movies.models.Review;
+import com.mfratila.movies.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

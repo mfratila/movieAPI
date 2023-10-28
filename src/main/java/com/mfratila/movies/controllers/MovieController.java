@@ -1,5 +1,7 @@
-package com.mfratila.movies.movie;
+package com.mfratila.movies.controllers;
 
+import com.mfratila.movies.models.Movie;
+import com.mfratila.movies.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

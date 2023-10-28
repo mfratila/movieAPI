@@ -1,6 +1,6 @@
-package com.mfratila.movies.movie;
+package com.mfratila.movies.models;
 
-import com.mfratila.movies.review.Review;
+import com.mfratila.movies.models.Review;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

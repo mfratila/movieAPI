@@ -1,5 +1,7 @@
-package com.mfratila.movies.movie;
+package com.mfratila.movies.services;
 
+import com.mfratila.movies.models.Movie;
+import com.mfratila.movies.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
