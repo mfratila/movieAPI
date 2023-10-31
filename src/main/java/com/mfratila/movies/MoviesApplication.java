@@ -38,12 +38,15 @@ public class MoviesApplication {
     CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         return args -> {
 
+            userRepository.deleteAll();
+            roleRepository.deleteAll();
+
             System.out.println("MONGO_DATABASE: " + mongoDatabase);
             System.out.println("MONGO_USER: " + mongoUser);
             System.out.println("MONGO_PASSWORD: " + mongoPassword);
             System.out.println("MONGO_CLUSTER: " + mongoCluster);
 
-            if(roleRepository.findByAuthority("ADMIN").isPresent()) return;
+            //if(roleRepository.findByAuthority("ADMIN").isPresent()) return;
 
             Role adminRole = roleRepository.save(new Role("ADMIN"));
             roleRepository.save(new Role("USER"));

@@ -55,13 +55,11 @@ public class SecurityConfiguration {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth-> {
-                    auth.requestMatchers("/api/v1/movies/**").permitAll();
-                    auth.requestMatchers(antMatcher(HttpMethod.GET, "/api/v1/reviews/**")).permitAll();
-                    auth.requestMatchers(antMatcher(HttpMethod.OPTIONS, "/api/v1/reviews/**")).permitAll();
-                    auth.requestMatchers("/api/v1/auth/**").permitAll();
+                    auth.requestMatchers(antMatcher(HttpMethod.POST, "/api/v1/reviews/**")).authenticated();
+                    auth.requestMatchers(antMatcher(HttpMethod.POST, "/api/v1/movies/**")).authenticated();
                     auth.requestMatchers("/admin/**").hasRole("ADMIN");
                     auth.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER");
-                    auth.anyRequest().authenticated();
+                    auth.anyRequest().permitAll();
                 });
         http
                 .oauth2ResourceServer().jwt()
